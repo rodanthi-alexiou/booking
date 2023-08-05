@@ -9,44 +9,44 @@ import javax.persistence.Id;
 public class Listing {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    
-    private String representativePhoto;
+    private long listingId;
+
+    private String name;
     private double costPerDay;
     private String rentalType; // Values: "private room", "shared room", "entire residence"
     private int numberOfBeds;
-    private int numberOfReviews;
     private double averageRating;
 
-    // Additional search filters
-    private String roomType; // Values: "single", "double", "triple", etc.
-    private double maximumCost;
-    private boolean hasWirelessInternet;
-    private boolean hasCooling;
-    private boolean hasHeating;
-    private boolean hasKitchen;
-    private boolean hasTV;
-    private boolean hasParking;
-    private boolean hasElevator;
+    // Constructors (default and parameterized)
 
-    // Constructor
-    public Listing(String representativePhoto, double costPerDay, String rentalType, int numberOfBeds, int numberOfReviews, double averageRating) {
-        this.representativePhoto = representativePhoto;
+    public Listing() {
+        // Default constructor required by JPA
+    }
+
+    public Listing(String name, double costPerDay, String rentalType, int numberOfBeds, double averageRating) {
+        this.name = name;
         this.costPerDay = costPerDay;
         this.rentalType = rentalType;
         this.numberOfBeds = numberOfBeds;
-        this.numberOfReviews = numberOfReviews;
         this.averageRating = averageRating;
     }
 
     // Getters and Setters
 
-    public String getRepresentativePhoto() {
-        return representativePhoto;
+    public long getListingId() {
+        return listingId;
     }
 
-    public void setRepresentativePhoto(String representativePhoto) {
-        this.representativePhoto = representativePhoto;
+    public void setListingId(long listingId) {
+        this.listingId = listingId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getCostPerDay() {
@@ -73,14 +73,6 @@ public class Listing {
         this.numberOfBeds = numberOfBeds;
     }
 
-    public int getNumberOfReviews() {
-        return numberOfReviews;
-    }
-
-    public void setNumberOfReviews(int numberOfReviews) {
-        this.numberOfReviews = numberOfReviews;
-    }
-
     public double getAverageRating() {
         return averageRating;
     }
@@ -89,76 +81,4 @@ public class Listing {
         this.averageRating = averageRating;
     }
 
-    public String getRoomType() {
-        return roomType;
-    }
-
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
-    }
-
-    public double getMaximumCost() {
-        return maximumCost;
-    }
-
-    public void setMaximumCost(double maximumCost) {
-        this.maximumCost = maximumCost;
-    }
-
-    public boolean isHasWirelessInternet() {
-        return hasWirelessInternet;
-    }
-
-    public void setHasWirelessInternet(boolean hasWirelessInternet) {
-        this.hasWirelessInternet = hasWirelessInternet;
-    }
-
-    public boolean isHasCooling() {
-        return hasCooling;
-    }
-
-    public void setHasCooling(boolean hasCooling) {
-        this.hasCooling = hasCooling;
-    }
-
-    public boolean isHasHeating() {
-        return hasHeating;
-    }
-
-    public void setHasHeating(boolean hasHeating) {
-        this.hasHeating = hasHeating;
-    }
-
-    public boolean isHasKitchen() {
-        return hasKitchen;
-    }
-
-    public void setHasKitchen(boolean hasKitchen) {
-        this.hasKitchen = hasKitchen;
-    }
-
-    public boolean isHasTV() {
-        return hasTV;
-    }
-
-    public void setHasTV(boolean hasTV) {
-        this.hasTV = hasTV;
-    }
-
-    public boolean isHasParking() {
-        return hasParking;
-    }
-
-    public void setHasParking(boolean hasParking) {
-        this.hasParking = hasParking;
-    }
-
-    public boolean isHasElevator() {
-        return hasElevator;
-    }
-
-    public void setHasElevator(boolean hasElevator) {
-        this.hasElevator = hasElevator;
-    }
 }
-
